@@ -4,11 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var config = require('./config');
+
+var mongodb = require('mongodb');
+var monk = require('monk');
+var db = monk(config.mongoConnectionString);
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+//tack the database onto the request so it's available for all middleware
+app.use(function(req,res,next){
+  req.db = db;
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
