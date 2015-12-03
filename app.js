@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var config = require('./config');
 
+var app = express();
+var io = require('socket.io')(app);
+
 var mongodb = require('mongodb');
 var monk = require('monk');
 var db = monk(config.mongoConnectionString);
@@ -14,7 +17,6 @@ var db = monk(config.mongoConnectionString);
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var app = express();
 
 //tack the database onto the request so it's available for all middleware
 app.use(function(req,res,next){
@@ -44,6 +46,15 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+//socket.io
+io.on('connection', function (socket) {
+    console.log('incoming socket connection established');
+    socket.on('<event>', function () {
+      // do something
+    });
+});
+
 
 // error handlers
 
