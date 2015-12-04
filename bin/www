@@ -20,12 +20,23 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var io = require('socket.io')(server);
+
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
+
+io.on('connection', function (socket) {
+    console.log('incoming socket connection established');
+    socket.on('event', function(data){
+      //TODO: send data to mongo
+      io.emit('update',data);
+    });
+});
+
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -82,6 +93,7 @@ function onError(error) {
  */
 
 function onListening() {
+  console.log('=======>' + server.address().port);
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr

@@ -5,10 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var config = require('./config');
-
 var app = express();
-var io = require('socket.io')(app);
 
+//TODO: replace monk with mongodb (see -device project for example)
 var mongodb = require('mongodb');
 var monk = require('monk');
 var db = monk(config.mongoConnectionString);
@@ -45,14 +44,6 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
-});
-
-//socket.io
-io.on('connection', function (socket) {
-    console.log('incoming socket connection established');
-    socket.on('<event>', function () {
-      // do something
-    });
 });
 
 
