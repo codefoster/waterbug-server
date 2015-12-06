@@ -1,0 +1,6 @@
+{
+	"module": "commonjs",
+	"experimentalDecorators": true,
+	"emitDecoratorMetadata": true,
+	"target": "ES5"
+}
