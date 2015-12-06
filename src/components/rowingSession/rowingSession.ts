@@ -5,7 +5,7 @@ import {MovieApi} from '../../services/movieApiService';
 import {Movie} from "../../models/movie";
 
 @Component({
-    selector: 'home'
+    selector: 'rowing-session'
 })
 @View({
     directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, RouterLink],
@@ -67,7 +67,7 @@ import {Movie} from "../../models/movie";
     `]
 
 })
-export class Home {
+export class RowingSession {
     movies:Movie[];
     search:string = '';
 
@@ -88,4 +88,4 @@ export class Home {
             return title.indexOf(search) !== -1;
         });
     }
-}
+} //
