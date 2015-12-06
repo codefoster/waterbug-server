@@ -10,5 +10,8 @@
     "express": "4.13.3",
     "gulp": "3.9.0",
     "gulp-typescript": "2.9.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.10.0"
   }
 }

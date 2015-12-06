@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var browserSync = require('browser-sync');
 var ts = require('gulp-typescript');
 
 var paths = {
@@ -29,8 +30,16 @@ gulp.task('styles', function () {
 });
 
 gulp.task('default', ['ts', 'templates', 'styles'], function () {
+    browserSync({
+        notify: true,
+        port: 8080,
+        server: {
+            baseDir: ['build']
+        }
+    });
+
     console.log("Watching for file changes. Press CTRL + C to cancel...");
-    gulp.watch(paths.ts, ['ts']);
-    gulp.watch(paths.templates, ['templates']);
-    gulp.watch(paths.styles, ['styles']);
+    gulp.watch(paths.ts, ['ts']).on('change',browserSync.reload);
+    gulp.watch(paths.templates, ['templates']).on('change',browserSync.reload);
+    gulp.watch(paths.styles, ['styles']).on('change',browserSync.reload);
 });
