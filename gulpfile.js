@@ -1,6 +1,5 @@
 var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var nodemon = require('gulp-nodemon');
+var clean = require('gulp-clean');
 var ts = require('gulp-typescript');
 
 var paths = {
@@ -10,39 +9,19 @@ var paths = {
     styles: ['src/**/*.css']
 };
 
-var BROWSER_SYNC_RELOAD_DELAY = 500;
-
-gulp.task('serve', ['browser-sync'], function () {
-    gulp.watch(paths.ts, ['typescript-compile']);
+gulp.task('serve',['clean','tsc','scripts','styles','templates'], function () {
+    gulp.watch(paths.ts, ['tsc']);
     gulp.watch(paths.scripts, ['scripts']);
     gulp.watch(paths.styles, ['styles']);
     gulp.watch(paths.templates, ['templates']);
 });
 
-gulp.task('browser-sync', ['nodemon'], function () {
-    browserSync({ proxy: 'http://localhost:8080', port:8080 });
+gulp.task('clean', function() {
+    return gulp.src('build',{read:false})
+        .pipe(clean());
 });
 
-gulp.task('nodemon', function (cb) {
-    var called = false;
-    return nodemon({
-        script: 'server.js',
-        watch: ['server.js']
-    })
-        .on('start', function onStart() {
-            if (!called) { cb(); }
-            called = true;
-        })
-        .on('restart', function onRestart() {
-            setTimeout(function reload() {
-                browserSync.reload({
-                    stream: false
-                });
-            }, BROWSER_SYNC_RELOAD_DELAY);
-        });
-});
-
-gulp.task('typescript-compile', function () {
+gulp.task('tsc', function () {
     return gulp.src(paths.ts)
         .pipe(ts({
             'module': 'commonjs',
@@ -54,19 +33,16 @@ gulp.task('typescript-compile', function () {
 });
 
 gulp.task('scripts', function () {
-    return gulp.src(paths.js)
-        .pipe(gulp.dest('build'))
-        .pipe(browserSync.reload());
+    return gulp.src('src/**/*.js')
+        .pipe(gulp.dest('build'));
 });
 
 gulp.task('styles', function () {
     return gulp.src(paths.styles)
-        .pipe(gulp.dest('build'))
-        .pipe(browserSync.reload({ stream: true }));
+        .pipe(gulp.dest('build'));
 })
 
 gulp.task('templates', function () {
     return gulp.src(paths.templates)
-        .pipe(gulp.dest('build'))
-        .pipe(browserSync.reload());
+        .pipe(gulp.dest('build'));
 });

@@ -11,7 +11,7 @@ import {Movie} from "../../models/movie";
     directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, RouterLink],
     template: `
         <div>
-            <h1 class="text-center">Water Bug</h1>
+            <h1 class="text-center">Waterbug</h1>
 
             <form class="form-inline">
                 <div class="form-group">
