@@ -5,13 +5,13 @@ import {MovieApi} from '../../services/movieApiService';
 import {Movie} from "../../models/movie";
 
 @Component({
-    selector: 'rowing-session'
+    selector: 'session'
 })
 @View({
     directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, RouterLink],
     template: `
         <div>
-            <h1 class="text-center">Waterbug</h1>
+            <h1 class="text-center">Water Bug</h1>
 
             <form class="form-inline">
                 <div class="form-group">
@@ -67,7 +67,7 @@ import {Movie} from "../../models/movie";
     `]
 
 })
-export class RowingSession {
+export class Session {
     movies:Movie[];
     search:string = '';
 
