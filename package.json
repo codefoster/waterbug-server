@@ -2,9 +2,7 @@
   "name": "waterbug-site",
   "version": "0.1.0",
   "description": "Front end for the Waterbug project",
-  "scripts": {
-    "start": "npm install && gulp"
-  },
+  "scripts": {},
   "dependencies": {
     "angular2": "2.0.0-alpha.44",
     "express": "4.13.3",
@@ -12,6 +10,7 @@
     "gulp-typescript": "2.9.2"
   },
   "devDependencies": {
-    "browser-sync": "^2.10.0"
+    "browser-sync": "^2.10.0",
+    "gulp-nodemon": "^2.0.4"
   }
 }
