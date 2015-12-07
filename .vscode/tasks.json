@@ -7,7 +7,7 @@
     ],
     "tasks": [
         {
-            "taskName": "default",
+            "taskName": "serve",
             "args": [],
             "isBuildCommand": true,
             "problemMatcher": "$tsc-watch"
