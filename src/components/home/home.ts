@@ -7,12 +7,12 @@ import {Movie} from '../../models/movie';
 import {Pure} from '../../pipes/purePipe';
 
 @Component({
-    selector: 'rowing-session',
+    selector: 'home',
     pipes: [Pure],
     directives: [FORM_DIRECTIVES, RouterLink],
     template: `
         <div>
-            <h1 class="text-center">Waterbug</h1>
+            <h1 class="text-center">Movie Database</h1>
 
             <form class="form-inline">
                 <div class="form-group">
@@ -68,7 +68,7 @@ import {Pure} from '../../pipes/purePipe';
     `]
 
 })
-export class RowingSession {
+export class Home {
     movies:Movie[];
     search:string = '';
 

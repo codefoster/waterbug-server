@@ -1,21 +1,19 @@
-import {Component, View} from 'angular2/angular2';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Home} from "../home/home";
+import {Component} from 'angular2/core';
+import {RouteConfig, RouterOutlet} from 'angular2/router';
+import {RowingSession} from "../rowingSession/rowingSession";
 import {MovieDetails} from '../movieDetails/movieDetails';
 
 @Component({
-    selector: 'app'
-})
-@View({
+    selector: 'app',
     template: `
         <div class="container">
             <router-outlet></router-outlet>
         </div>
     `,
-    directives: [ROUTER_DIRECTIVES, Home, MovieDetails]
+    directives: [RouterOutlet, RowingSession, MovieDetails]
 })
 @RouteConfig([
-    { path: '/', component: Home, as: 'Home'},
+    { path: '/', component: RowingSession, as: 'RowingSession'},
     { path: '/details/:movieId', component: MovieDetails, as: 'MovieDetails' }
 ])
 export class App {
