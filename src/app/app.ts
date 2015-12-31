@@ -8,27 +8,29 @@ import {
 	LocationStrategy,
 	HashLocationStrategy
 } from "angular2/router";
+import { Rower } from "../rower/rower"
 import { HTTP_PROVIDERS } from "angular2/http";
-
-import { Session } from "../session/session";
-// import { Rower } from "../rower/rower";
 
 @Component({
 	selector: "app",
-	template: '<router-outlet></router-outlet>',
-	directives: [ROUTER_DIRECTIVES],
-	providers: [HTTP_PROVIDERS]
+	templateUrl: 'src/app/app.html',
+	directives: [ROUTER_DIRECTIVES, Rower],
+	providers: [HTTP_PROVIDERS],
+    styleUrls:['src/app/app.css']
 })
 
 // Configure the routes for the app
 @RouteConfig([
-	{ path: "/", component: Session, as: "Session" }
+	// { path: "/", component: App, as: "App" }
 ])
 
 export class App {
-	constructor(router:Router) {
-        //router.navigate(["/"]);
-	}
+	private rowers = [{name:'jeremy'},{name:'daniel'}];
+
+    //this is how to do conditional navigation (though I don't need to at this point)
+	// myfunction(router:Router) {
+    //     //router.navigate(["/"]);
+	// }
 }
 
 bootstrap(App, [ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy })]);

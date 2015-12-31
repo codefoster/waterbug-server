@@ -23,7 +23,8 @@ System.register(['angular2/core'], function(exports_1) {
                     core_1.Component({
                         selector: 'rower',
                         inputs: ['name'],
-                        templateUrl: 'src/rower/rower.html'
+                        templateUrl: 'src/rower/rower.html',
+                        styleUrls: ['src/rower/rower.css']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Rower);
