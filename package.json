@@ -2,8 +2,6 @@
   "name": "Angular2Files",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrent \"tsc -w\" \"nodemon server/server\"",
-    "build": "tsc"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.0",

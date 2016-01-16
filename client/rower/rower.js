@@ -23,3 +23,4 @@ var Rower = (function () {
     return Rower;
 })();
 exports.Rower = Rower;
+//# sourceMappingURL=rower.js.map
