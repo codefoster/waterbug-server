@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Waterbug</title>
+	
+	<!-- Bootstrap stuff -->
+	<script src="scripts/jquery/dist/jquery.min.js"></script>
+	<!--<script src="scripts/bootstrap/dist/js/bootstrap.min.js"></script>-->
+	<!--<link rel="stylesheet" href="scripts/bootstrap/dist/css/bootstrap.min.css" />-->
+	
+	<!-- Angular2 stuff -->
+	<script src="scripts/systemjs/dist/system.src.js"></script>
+	<script src="scripts/angular2/bundles/angular2-polyfills.js"></script>
+	<script src="scripts/rxjs/bundles/Rx.js"></script>
+	<script src="scripts/angular2/bundles/angular2.dev.js"></script>
+	<script src="scripts/angular2/bundles/router.dev.js"></script>
+	<script src="scripts/angular2/bundles/http.dev.js"></script>
+	<script type="text/javascript">
+		System.config({
+            baseURL:'/',
+            packages: {
+                'client/app': {defaultExtension: 'js'}
+            }
+		});
+		System.import("app/app.js");
+	</script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <app></app>
+</body>
+<base href="/">
+</html>

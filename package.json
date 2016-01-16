@@ -1,23 +1,29 @@
 {
-	"name": "Angular2Files",
-	"version": "1.0.0",
-	"scripts": {
-		"start": "concurrent \"tsc -w\" \"live-server\""
-	},
-	"dependencies": {
-		"jquery": "*",
-		"bootstrap": "*",
-		"angular2": "2.0.0-beta.0",
-		"systemjs": "0.19.6",
-		"es6-promise": "^3.0.2",
-		"es6-shim": "0.33.0",
-		"reflect-metadata": "0.1.2",
-		"rxjs": "5.0.0-beta.0",
-		"zone.js": "0.5.10"
-	},
-	"devDependencies": {
-		"concurrently": "^1.0.0",
-		"live-server": "^0.9.0",
-		"typescript": "1.7.3"
-	}
+  "name": "Angular2Files",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrent \"tsc -w\" \"nodemon server/server\"",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.0",
+    "bootstrap": "*",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "0.33.0",
+    "express": "^4.13.3",
+    "jquery": "*",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "socket.io": "^1.3.7",
+    "systemjs": "0.19.6",
+    "zone.js": "0.5.10"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.0",
+    "concurrently": "^1.0.0",
+    "gulp": "^3.9.0",
+    "gulp-typescript": "^2.10.0",
+    "live-server": "^0.9.0",
+    "typescript": "1.7.3"
+  }
 }

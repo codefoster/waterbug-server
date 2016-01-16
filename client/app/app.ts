@@ -8,20 +8,22 @@ import {
 	LocationStrategy,
 	HashLocationStrategy
 } from "angular2/router";
-import { Rower } from "../rower/rower"
+import { Rower } from "../rower/rower";
 import { HTTP_PROVIDERS } from "angular2/http";
 
 @Component({
 	selector: "app",
-	templateUrl: 'src/app/app.html',
+	templateUrl: 'app/app.html',
 	directives: [ROUTER_DIRECTIVES, Rower],
 	providers: [HTTP_PROVIDERS],
-    styleUrls:['src/app/app.css']
+    styleUrls:['app/app.css']
 })
 
 // Configure the routes for the app
+// NOTE: this app doesn't actually even need a router or any of this routing code, but I'm leaving it in here for reference
 @RouteConfig([
-	// { path: "/", component: App, as: "App" }
+	// { path: "<path>", component: <component>, name: "<name>" }
+	// { path: "<path>", component: <component>, name: "<name>" }
 ])
 
 export class App {
