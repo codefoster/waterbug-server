@@ -40,7 +40,7 @@ export class App {
 
     }
 
-    private rowers = [{ name: 'jedddremy' }, { name: 'daniel' }];
+    private rowers = [{ name: 'jeremy' }, { name: 'daniel' }];
 
     //this is how to do conditional navigation (though I don't need to at this point)
     // myfunction(router:Router) {

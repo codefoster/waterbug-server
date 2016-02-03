@@ -1,8 +1,7 @@
 {
   "name": "Angular2Files",
   "version": "1.0.0",
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
     "angular2": "2.0.0-beta.0",
     "bootstrap": "*",
@@ -19,7 +18,10 @@
   "devDependencies": {
     "browser-sync": "^2.11.0",
     "concurrently": "^1.0.0",
-    "gulp": "^3.9.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-notify": "^2.2.0",
     "gulp-typescript": "^2.10.0",
     "live-server": "^0.9.0",
     "typescript": "1.7.3"
