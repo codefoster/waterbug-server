@@ -16,8 +16,8 @@ app.state = {
 var server = require("http").Server(app);
 var io = require("socket.io").listen(server);
  
-app.use(express.static(path.join(__dirname, "../client")));
-app.use("/scripts", express.static(path.join(__dirname,"../node_modules/")));
+// app.use(express.static(path.join(__dirname, "../app")));
+// app.use("/scripts", express.static(path.join(__dirname,"../node_modules/")));
 
 io.on("connection", function(socket){
     console.log('client connected');
