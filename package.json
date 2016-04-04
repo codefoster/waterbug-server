@@ -2,7 +2,7 @@
   "name": "waterbug-server",
   "version": "0.1.0",
   "author": "Jeremy Foster <jeremy.foster@live.com> (http://codefoster.com)",
-  "description": "Socket server for the Waterbug project"
+  "description": "Socket server for the Waterbug project",
   "scripts": {
       "start": "nodemon server.js"
   },
