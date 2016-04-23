@@ -1,9 +1,12 @@
+/// <reference path="typings/main/ambient/express/index.d.ts" />
+
 var express = require("express");
 
 var app = express();
 
 var server = require("http").Server(app);
 var io = require("socket.io").listen(server);
+var port = process.env.port || 8080;
 
 io.on("connection", function(socket) {
     // wire up a handler for the client sending a 'stroke' message
@@ -18,7 +21,12 @@ io.on("connection", function(socket) {
     socket.on("stoprace", data => io.emit("stoprace", data));
 });
 
-server.listen(8080, function() {
-    console.log("Listening on port %s...", server.address().port);
+app.get('/', (req,res) => {
+    res.header('200','{"Content-Type","text/html"}');
+    res.send("Socket server active and listening...");
+    res.end();
 });
 
+server.listen(port, function() {
+    console.log("Listening on port %s...", server.address().port);
+});
