@@ -9,16 +9,10 @@ var io = require("socket.io").listen(server);
 var port = process.env.port || 8080;
 
 io.on("connection", function(socket) {
-    // wire up a handler for the client sending a 'stroke' message
-    console.log('connection');
-    console.log(socket.conn.id);
+    console.log(`connection (id:${socket.conn.id})`);
 
-    // these are simple pass thru's
-    // when any client sends a "stroke" or "startrace" message it will be passed on to all other connected clients
-    // inside these handlers is where we would "intercept" all messages to persist data to a database
-    socket.on("stroke", data => io.emit("stroke", data));
-    socket.on("startrace", data => io.emit("startrace", data));
-    socket.on("stoprace", data => io.emit("stoprace", data));
+    // pass all messages along
+    socket.on("message", data => io.send(data));
 });
 
 app.get('/', (req,res) => {
@@ -30,3 +24,5 @@ app.get('/', (req,res) => {
 server.listen(port, function() {
     console.log("Listening on port %s...", server.address().port);
 });
+
+
