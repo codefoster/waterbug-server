@@ -4,18 +4,19 @@
   "author": "Jeremy Foster <jeremy.foster@live.com> (http://codefoster.com)",
   "description": "Socket server for the Waterbug project",
   "scripts": {
-      "start": "nodemon server.js"
+    "start": "nodemon server.js"
   },
   "license": "Apache-2.0",
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/codefoster/waterbug-server.git"
+    "type": "git",
+    "url": "git+https://github.com/codefoster/waterbug-server.git"
   },
   "dependencies": {
     "express": "^4.13.3",
     "socket.io": "^1.3.7"
   },
   "devDependencies": {
+    "nodemon": "^1.9.2",
     "typescript": "1.8.0"
   }
 }
