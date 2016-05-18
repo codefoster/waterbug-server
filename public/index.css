@@ -1,0 +1,20 @@
+li {
+    font-family:'Segoe UI';
+    font-size:28pt;
+    list-style-type: none;
+}
+
+.startrace {
+    color:green;
+    text-transform: uppercase;
+}
+
+.stoprace {
+    color:red;
+    text-transform: uppercase;
+}
+
+.stroke {
+    margin-left:15px;
+    font-size:24pt;
+}

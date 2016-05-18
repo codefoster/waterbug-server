@@ -1,4 +1,4 @@
-//Set up server
+// set up server
 var express = require("express");
 var app = express();
 var server = require("http").Server(app);
@@ -8,18 +8,15 @@ app.get("/" ,function (req, res) {
     res.redirect("index.html");
 })
 
-//Include socket.io
+// include socket.io
 var io = require("socket.io").listen(server);
 
-
-//define our port and mongo information 
+// define our port and mongo information 
 var config = require('./config');
 var port = process.env.port || config.devPort;
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
 var url = config.mongoLabsConnectionString;
-
-var routes = require('./routes/index');
 
 io.on("connection", function (socket) {
     console.log("connection id:" + socket.conn.id);
