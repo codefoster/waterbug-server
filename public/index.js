@@ -1,6 +1,7 @@
 var socket = io();
 
 socket.on('message', function (data) {
+    console.log(JSON.stringify(data));
     switch (data.message) {
         case 'startrace':
             addMessage({ message: 'race started', className: 'startrace' });
@@ -9,7 +10,7 @@ socket.on('message', function (data) {
             addMessage({ message: 'race ended', className: 'stoprace' });
             break;
         case 'strokedata':
-            addMessage({ message: 'Stroke by ' + data.name + ' (distance: ' + data.distance + ')', className: 'data' });
+            addMessage({ message: 'Stroke by ' + data.name, className: 'data' });
             break;
     }
 });
