@@ -9,7 +9,7 @@ socket.on('message', function (data) {
             addMessage({ message: 'race ended', className: 'stoprace' });
             break;
         case 'stroke':
-            addMessage({ message: 'Stroke by ' + data.name, className: 'stroke' });
+            addMessage({ message: 'Stroke by ' + data.name + ' (distance: ' + data.distance + ')', className: 'stroke' });
             break;
     }
 });
