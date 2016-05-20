@@ -8,8 +8,8 @@ socket.on('message', function (data) {
         case 'stoprace':
             addMessage({ message: 'race ended', className: 'stoprace' });
             break;
-        case 'stroke':
-            addMessage({ message: 'Stroke by ' + data.name + ' (distance: ' + data.distance + ')', className: 'stroke' });
+        case 'strokedata':
+            addMessage({ message: 'Stroke by ' + data.name + ' (distance: ' + data.distance + ')', className: 'data' });
             break;
     }
 });
